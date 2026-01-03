@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>CONTACT US | THE LAST OF US</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Georgia, serif;
+            background: #f5f5f5;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background: #000;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        /* HERO */
+        .hero {
+            background: url("images/banner ellie tlou.jpeg") center/cover no-repeat;
+            height: 60vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+        }
+
+        .hero h1 {
+            position: relative;
+            color: #fff;
+            font-size: 48px;
+            letter-spacing: 3px;
+        }
+
+        /* CONTACT */
+        .contact-container {
+            max-width: 900px;
+            margin: 60px auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* CLOCK BOX */
+        .clock-box {
+            text-align: center;
+            border: 1px solid #000;
+            padding: 15px;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+            background: #fafafa;
+        }
+
+        .clock-box .date {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        .clock-box .time {
+            font-size: 24px;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .contact-container h2 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .contact-container p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            font-family: inherit;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        textarea {
+            grid-column: span 2;
+            height: 120px;
+            resize: none;
+        }
+
+        button {
+            grid-column: span 2;
+            padding: 14px;
+            background: #000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 2px;
+        }
+
+        button:hover {
+            background: #444;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #000;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <a href="index.html">HOME</a>
+    <a href="index1.html">ABOUT</a>
+    <a href="index2.html">GALLERY</a>
+    <a href="contact.html">CONTACT</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>CONTACT US</h1>
+</section>
+
+<!-- CONTACT FORM -->
+<div class="contact-container">
+
+    <!-- JAM DALAM KOTAK -->
+    <div class="clock-box">
+        <div class="date" id="date"></div>
+        <div class="time" id="time"></div>
+    </div>
+
+    <h2>Hubungi Kami</h2>
+    <p>Silakan isi form di bawah ini untuk menghubungi kami</p>
+
+    <form>
+        <input type="text" placeholder="Nama Lengkap" required>
+        <input type="email" placeholder="Email" required>
+        <input type="tel" placeholder="No Telepon" required>
+        <input type="date" required>
+        <textarea placeholder="Pesan" required></textarea>
+        <button type="submit">KIRIM PESAN</button>
+    </form>
+</div>
+<!-- JAVASCRIPT JAM REAL TIME -->
+<script>
+function updateClock() {
+    const now = new Date();
+
+    const dateOptions = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    };
+
+    const date = now.toLocaleDateString('id-ID', dateOptions);
+
+    let h = now.getHours();
+    let m = now.getMinutes();
+    let s = now.getSeconds();
+
+    h = h < 10 ? "0" + h : h;
+    m = m < 10 ? "0" + m : m;
+    s = s < 10 ? "0" + s : s;
+
+    document.getElementById("date").innerHTML = date;
+    document.getElementById("time").innerHTML = `${h}:${m}:${s}`;
+}
+
+setInterval(updateClock, 1000);
+updateClock();
+</script>
+<footer>
+    © Raden Roro Rizcha Dwi K.O.R | 251011700241 | 01SIFP004
+</footer>
+</body>
+</html>
